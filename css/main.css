@@ -4,9 +4,23 @@ body {
   background: black;
   color: lime;
 }
+
+h1 {
+  margin: 10px;
+}
+
 #output, #input {
   font-family: 'Lucida Sans Typewriter', 'Lucida Console', monaco, 'Bitstream Vera Sans Mono', monospace;
+  font-size: 12pt;
   width: 100%;
-  margin: 5px;
-  border: none;
+  margin: 10px;
+}
+
+/* TODO: https://css-tricks.com/snippets/css/style-placeholder-text/ */
+
+#input>input {
+  background: black;
+  color: lime;
+  font-family: 'Lucida Sans Typewriter', 'Lucida Console', monaco, 'Bitstream Vera Sans Mono', monospace;
+  font-size: 12pt;
 }
