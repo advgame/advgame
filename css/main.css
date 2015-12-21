@@ -28,6 +28,10 @@ h1 {
   border: none;
 }
 
+#input>input:focus {
+  border: none;
+}
+
 #output {
   max-height: 80%;
 }
