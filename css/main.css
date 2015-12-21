@@ -29,7 +29,7 @@ h1 {
 }
 
 #input>input:focus {
-  border: none;
+  outline: 0;
 }
 
 #output {
