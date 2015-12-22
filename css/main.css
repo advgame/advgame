@@ -48,3 +48,11 @@ h1 {
   margin: 0;
   padding-left: 1em;
 }
+
+/* Color the selections on the page to a dark green */
+::-moz-selection { /* ::selection is vendor-prefixed in FF right now */
+  background: darkgreen;
+}
+::selection {
+  background: darkgreen;
+}
