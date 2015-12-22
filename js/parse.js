@@ -15,13 +15,16 @@
           console.log('IN: ' + input);
           return 'NYI';
         },
-        reset: function(cb) {
+        getReset: function(cb) {
           return context.loadGame(game, cb);
         },
         getSave: function() {
-          // TODO
+          // TODO: implement
         }
       });
+    };
+    request.onerror = function() {
+      
     };
     request.send();
   };
