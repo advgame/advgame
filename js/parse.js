@@ -19,6 +19,8 @@
           
           input = (input + '').toLowerCase(); // Lowercase the input
           
+          // TODO: parse input here
+          
           var out = 'NYI';
           
           console.log('OUT: "' + out + '"'); // Log output
@@ -33,8 +35,8 @@
       });
     };
     var gameError = function() {
-      console.error('ERROR: Could not load game. (status: '+ request.status + ')');
-      callback({ name: 'Error: Game Could Not Load', isError: true});
+      console.error('ERROR: Could not load game. (status: ' + request.status + ')');
+      callback({ name: 'Error: Game Could Not Load', isError: true });
     };
     request.onerror = gameError;
     request.send();
