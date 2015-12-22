@@ -1,6 +1,144 @@
 {
   "name": "The Plot",
-  "locations": [
-    
+  "locations": {
+    "dome-D4": {
+      "contains": {
+        {
+          "name": "lightbulb",
+          "chara": {
+            "broken": false
+          },
+          "commands": {
+            
+          }
+        },
+        {
+          "name": "plastic shard",
+          "commands": {
+            
+          }
+        }
+      },
+      "commands": {
+        
+      }
+    }
+  },
+  "constLocations": {
+    "boot": {
+      "contains": [
+        {
+          "name": "gun",
+          "chara": {
+            "ammo": 3
+          },
+          "commands": {
+            
+          }
+        }
+      ]
+    }
+  },
+  "doInit": "out 'You wake up with a throbbing head and no memory of who you are or what you're doing.'",
+  "initLocation": "dome-D4",
+  "inventory": [
+    {
+      "name": "watch",
+      "chara": {
+        "broken": true
+      },
+      "contains": [
+        {
+          "name": "paracord",
+          "chara": {
+            "unlaced": false,
+            "attached": true
+          },
+          "commands": {
+            
+          }
+        },
+        {
+          "name": "watch cover",
+          "commands": {
+            
+          }
+        }
+      ],
+      "commands": {
+        
+      }
+    },
+    {
+      "name": "first aid kit",
+      "contains": [
+        {
+          "name": "bandaid",
+          "quantity": 10,
+          "commands": {
+            "used": false
+          }
+        },
+        {
+          "name": "scissors",
+          "commands": {
+            
+          }
+        },
+        {
+          "name": "gauze roll",
+          "chara": {
+            "amtLeft": 100
+          },
+          "commands": {
+            
+          }
+        },
+        {
+          "name": "pencil",
+          "chara": {
+            "sharp": true
+          },
+          "commands": {
+            
+          }
+        },
+        {
+          "name": "paper",
+          "quantity": 5,
+          "chara": {
+            "used": false
+          },
+          "commands": {
+            
+          }
+        },
+        {
+          "name": "antibiotic ointment",
+          "chara": {
+            "amtLeft": 100
+          },
+          "commands": {
+            
+          }
+        },
+        {
+          "name": "alcohol wipes",
+          "quantity": 10,
+          "chara": {
+            "used": false
+          },
+          "commands": {
+            
+          }
+        },
+        {
+          "name": "tweezers",
+          "commands": {
+            
+          }
+        }
+      ]
+    }
   ]
 }
