@@ -56,3 +56,9 @@ h1 {
 ::selection {
   background: darkgreen;
 }
+
+/* Add opactiy on Webkit to match FF placeholder color */
+::-webkit-input-placeholder {
+  opacity: 0.54;
+  color: lime;
+}
