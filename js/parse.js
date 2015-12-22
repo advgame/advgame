@@ -7,20 +7,22 @@
     
     var request = new context.XMLHttpRequest();
     request.open('GET', 'games/' + context.encodeURIComponent(game) + '.json');
-    // TODO
-    
-    return {
-      input: function(in) {
-        var out;
-        // TODO
-        return out;
-      },
-      reset: function() {
-        // TODO
-      },
-      getSave: function() {
-        // TODO
-      }
+    request.onload = function() {
+      // TODO: check for errors with request
+      var parsed = context.JSON.parse(request.responseText);
+      callback({
+        input: function(input) {
+          console.log('IN: ' + input);
+          return 'NYI';
+        },
+        reset: function(cb) {
+          return context.loadGame(game, cb);
+        },
+        getSave: function() {
+          // TODO
+        }
+      });
     };
+    request.send();
   };
 })(window);
