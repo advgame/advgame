@@ -2,7 +2,7 @@
   "name": "The Plot",
   "locations": {
     "dome-D4": {
-      "contains": {
+      "contains": [
         {
           "name": "lightbulb",
           "chara": {
@@ -18,7 +18,7 @@
             
           }
         }
-      },
+      ],
       "commands": {
         
       }
