@@ -34,6 +34,7 @@ h1 {
 
 #output {
   max-height: 80%;
+  font-size: 12pt;
 }
 
 #output>.oldInput {
