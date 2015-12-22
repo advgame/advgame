@@ -17,7 +17,7 @@
         input: function(input) {
           console.log('IN: "' + input + '"'); // Log input
           
-          input = (input + '').trim().toLowerCase().replace(/[^a-z\s0-9]/gi, '').replace(/\s+/g, " "); 
+          input = (input + '').toLowerCase().replace(/[^a-z\s0-9]/gi, ' ').replace(/\s+/g, " ").trim(); 
           // Lowercase the input and remove non-letter/number characters and excess spaces
           
           // TODO: parse input here
