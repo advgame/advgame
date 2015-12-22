@@ -39,6 +39,7 @@ h1 {
 #output>.oldInput {
   display: block;
   margin: 0;
+  margin-top: 10px; /* to match the input field */
 }
 
 #output>.response {
