@@ -35,3 +35,14 @@ h1 {
 #output {
   max-height: 80%;
 }
+
+#output>.oldInput {
+  display: block;
+  margin: 0;
+}
+
+#output>.response {
+  display: block;
+  margin: 0;
+  padding-left: 1em;
+}
