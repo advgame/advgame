@@ -18,19 +18,24 @@
       game = initialGame;
       
       // doCmd() accepts an already-filtered string (no punctuation, etc.)
-      var doCmd = function(cmd) {
+      var doCmd = function(cmd, runTime) {
         doCmd.out = '';
+        
+        var gotCmd = ' out("NYI"); '
+        
+        eval.call(runTime, gotCmd);
         
         return doCmd.out;
       };
       
       var runTime = {
         out: function(output) {
-          doCmd.out += (runTime.convert(output, 'str')).raw;
+          doCmd.out += output;
         },
-        lnout: function(output) {
-          runTime.out(output + '\n'); 
-        }
+        run: function(cmd) {
+          doCmd(cmd, runTime);
+        },
+        data: game
       };
       
       callback({
@@ -40,7 +45,7 @@
           input = (input + '').toLowerCase().replace(/[^a-z\s0-9]/gi, ' ').replace(/\s+/g, ' ').trim(); 
           // Lowercase the input and remove non-letter/number characters and excess spaces
           
-          var out = doCmd(input);
+          var out = doCmd(input, runTime);
           
           console.log('OUT: "' + out + '"'); // Log output
           return out;
