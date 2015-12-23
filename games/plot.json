@@ -40,7 +40,7 @@
     }
   },
   "doInit": "out 'You wake up with a throbbing head and no memory of who you are or what you're doing.'",
-  "initLocation": "dome-D4",
+  "location": "dome-D4",
   "inventory": [
     {
       "name": "watch",
