@@ -1,8 +1,12 @@
 (function(context) {
-  var evalInContext = function(js, context) {
+  var evalInContext = function(js, ctx) {
     // Return the results of the in-line anonymous function we .call with the passed context
     // From: http://stackoverflow.com/questions/8403108/calling-eval-in-particular-context
-    return function() { return eval(js); }.call(context);
+    return function() {
+      with(this) {
+        return eval(js);
+      }
+    }.call(ctx);
   };
   
   context.loadGame = function(game, callback) {
@@ -26,7 +30,7 @@
       var doCmd = function(cmd, runTime) {
         doCmd.out = '';
         
-        var gotCmd = ' console.log(window); this.out("NYI"); '
+        var gotCmd = ' console.log(window); out("NYI"); '
         
         evalInContext(gotCmd, runTime);
         
