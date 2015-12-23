@@ -12,7 +12,27 @@
         return;
       }
       
-      var parsed = context.JSON.parse(request.responseText);
+      var gameStr = game;
+      var initialGame = context.JSON.parse(request.responseText);
+      
+      game = initialGame;
+      
+      // doCmd() accepts an already-filtered string (no punctuation, etc.)
+      var doCmd = function(cmd) {
+        doCmd.out = '';
+        
+        return doCmd.out;
+      };
+      
+      var runTime = {
+        out: function(output) {
+          doCmd.out += (runTime.convert(output, 'str')).raw;
+        },
+        lnout: function(output) {
+          runTime.out(output + '\n'); 
+        }
+      };
+      
       callback({
         input: function(input) {
           console.log('IN: "' + input + '"'); // Log input
@@ -20,15 +40,14 @@
           input = (input + '').toLowerCase().replace(/[^a-z\s0-9]/gi, ' ').replace(/\s+/g, ' ').trim(); 
           // Lowercase the input and remove non-letter/number characters and excess spaces
           
-          // TODO: parse input here
-          
-          var out = input;
+          var out = doCmd(input);
           
           console.log('OUT: "' + out + '"'); // Log output
           return out;
         },
         getReset: function(cb) {
-          return context.loadGame(game, cb);
+          // Return a newly loaded game when getReset() is called
+          return context.loadGame(gameStr, cb);
         },
         getSave: function() {
           // TODO: implement
