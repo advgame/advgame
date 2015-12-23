@@ -21,7 +21,7 @@
       var doCmd = function(cmd, runTime) {
         doCmd.out = '';
         
-        var gotCmd = ' out("NYI"); '
+        var gotCmd = ' console.log(this); out("NYI"); '
         
         eval.call(runTime, gotCmd);
         
