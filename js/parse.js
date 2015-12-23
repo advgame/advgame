@@ -26,7 +26,7 @@
       var doCmd = function(cmd, runTime) {
         doCmd.out = '';
         
-        var gotCmd = ' console.log(this); out("NYI"); '
+        var gotCmd = ' console.log(window); this.out("NYI"); '
         
         evalInContext(gotCmd, runTime);
         
