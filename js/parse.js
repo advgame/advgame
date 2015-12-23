@@ -32,6 +32,9 @@
         
         var gotCmd = ' console.log(window); out("NYI"); '
         
+        // TODO: This eval is insecure. Consider:
+        //   https://developers.google.com/caja/docs/runningjavascript/
+        //   https://github.com/jterrace/js.js/
         evalInContext(gotCmd, runTime);
         
         return doCmd.out;
