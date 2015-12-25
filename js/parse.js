@@ -18,7 +18,7 @@
     return function() {
       setToUndef.call(this, Object.getOwnPropertyNames(context));
       setToUndef.call(this, ['context', 'setToUndef', 'js', 'ctx', 'undefined', 'window', 'eval', 'location', 'evalInContext']);
-      this.console = _console;
+      this.console = this._console;
       // Remove vars for safety with the eval
       with(this) {
         console.log(_eval);
