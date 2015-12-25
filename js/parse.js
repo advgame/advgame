@@ -1,8 +1,24 @@
 (function(context) {
   var evalInContext = function(js, ctx) {
+    var undefined; // Ensure undefined is set correctly
     // Return the results of the in-line anonymous function we .call with the passed context
     // From: http://stackoverflow.com/questions/8403108/calling-eval-in-particular-context
+    var setToUndef = function(key) {
+      if (key instanceof context.Array) {
+        for (var i = 0; i < key.length i++) {
+          this[key[i]] = undef;
+        }
+      }
+      this[key] = undef;
+    };
     return function() {
+      setToUndef.call(this, [
+        'window',
+        'location',
+        'document',
+        'open',
+        'content'
+      ]);
       with(this) {
         return eval(js);
       }
