@@ -21,7 +21,6 @@
       this.console = this._console;
       // Remove vars for safety with the eval
       with(this) {
-        console.log(_eval);
         return _eval('_eval=undefined;_console=undefined;' + js);
       }
     }.call(ctx);
