@@ -34,7 +34,7 @@
       var doCmd = function(cmd, runTime) {
         doCmd.out = '';
         
-        var gotCmd = ' console.log(window); out("NYI"); '
+        var gotCmd = ' console.log(window); println("NYI"); '
         
         // TODO: This eval is insecure. Consider:
         //   https://developers.google.com/caja/docs/runningjavascript/
