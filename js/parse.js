@@ -11,14 +11,14 @@
       }
       this[key] = undefined;
     };
+    var _eval = eval;
     return function() {
       
       setToUndef.call(this, Object.getOwnPropertyNames(context));
       setToUndef.call(this, ['context', 'setToUndef', 'js', 'ctx', 'undefined', 'window', 'eval', 'location']);
       // Remove vars for safety with the eval
-      
       with(this) {
-        return eval(js);
+        return _eval('_eval=undefined;' + js);
       }
     }.call(ctx);
   };
