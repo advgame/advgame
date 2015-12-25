@@ -16,6 +16,7 @@
     };
     ctx._eval = context.eval;
     ctx._console = context.console;
+    ctx._js = js;
     return function() {
       if (!protectionDone) {
         setToUndef.call(this, Object.getOwnPropertyNames(context));
@@ -25,7 +26,7 @@
       this.console = this._console;
       // Remove vars for safety with the eval
       with(this) {
-        return this._eval('_eval=undefined;_console=undefined;' + js);
+        return this._eval('_eval=undefined;_console=undefined;_js=undefined;' + this._js);
       }
     }.call(ctx);
   };
