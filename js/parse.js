@@ -14,7 +14,7 @@
       }
     };
     ctx._eval = context.eval;
-    ctx._console = console;
+    ctx._console = context.console;
     return function() {
       setToUndef.call(this, Object.getOwnPropertyNames(context));
       setToUndef.call(this, ['context', 'setToUndef', 'js', 'ctx', 'undefined', 'window', 'eval', 'location', 'evalInContext']);
