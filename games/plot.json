@@ -39,7 +39,7 @@
       ]
     }
   },
-  "doInit": "out 'You wake up with a throbbing head and no memory of who you are or what you're doing.'",
+  "doInit": "println('You wake up with a throbbing head and no memory of who you are or what you're doing.');",
   "location": "dome-D4",
   "inventory": [
     {
