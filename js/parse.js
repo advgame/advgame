@@ -9,16 +9,19 @@
           this[key[i]] = undefined;
         }
       }
-      this[key] = undefined;
+      else {
+        this[key] = undefined;
+      }
     };
-    var _eval = eval;
+    var _eval = context.eval;
     var _console = console;
     return function() {
       setToUndef.call(this, Object.getOwnPropertyNames(context));
-      setToUndef.call(this, ['context', 'setToUndef', 'js', 'ctx', 'undefined', 'window', 'eval', 'location']);
+      setToUndef.call(this, ['context', 'setToUndef', 'js', 'ctx', 'undefined', 'window', 'eval', 'location', 'evalInContext']);
       this.console = _console;
       // Remove vars for safety with the eval
       with(this) {
+        console.log(_eval);
         return _eval('_eval=undefined;_console=undefined;' + js);
       }
     }.call(ctx);
