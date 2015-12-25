@@ -5,7 +5,7 @@
     // From: http://stackoverflow.com/questions/8403108/calling-eval-in-particular-context
     var setToUndef = function(key) {
       if (key instanceof context.Array) {
-        for (var i = 0; i < key.length i++) {
+        for (var i = 0; i < key.length; i++) {
           this[key[i]] = undef;
         }
       }
