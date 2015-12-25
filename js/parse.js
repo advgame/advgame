@@ -1,32 +1,14 @@
 (function(context) {
-  var protectionDone = false;
+  var undefined; // Ensure value of undefined is correct
+  
   var evalInContext = function(js, ctx) {
-    var undefined; // Ensure undefined is set correctly
     // Return the results of the in-line anonymous function we .call with the passed context
     // From: http://stackoverflow.com/questions/8403108/calling-eval-in-particular-context
-    var setToUndef = function(key) {
-      if (key instanceof context.Array) {
-        for (var i = 0; i < key.length; i++) {
-          this[key[i]] = undefined;
-        }
-      }
-      else {
-        this[key] = undefined;
-      }
-    };
     ctx._eval = context.eval;
-    ctx._console = context.console;
     ctx._js = js;
     return function() {
-      if (!protectionDone) {
-        setToUndef.call(this, Object.getOwnPropertyNames(context));
-        setToUndef.call(this, ['context', 'setToUndef', 'js', 'ctx', 'undefined', 'window', 'eval', 'evalInContext']);
-        protectionDone = true;
-      }
-      this.console = this._console;
-      // Remove vars for safety with the eval
       with(this) {
-        return this._eval('_eval=undefined;_console=undefined;_js=undefined;' + this._js);
+        return this._eval('_eval=undefined;_js=undefined;' + this._js);
       }
     }.call(ctx);
   };
@@ -62,12 +44,28 @@
         return doCmd.out;
       };
       
-      var runTime = {
-        out: function(output) {
-          doCmd.out += output;
-        },
-        data: game
+      var runTime = {};
+      
+      // setToUndef sets variables by key in its context to undefined
+      var setToUndef = function(key) {
+        if (key instanceof context.Array) {
+          for (var i = 0; i < key.length; i++) {
+            this[key[i]] = undefined;
+          }
+        }
+        else {
+          this[key] = undefined;
+        }
       };
+      setToUndef.call(runTime, Object.getOwnPropertyNames(context));
+      setToUndef.call(runTime, ['context', 'setToUndef', 'js', 'ctx', 'undefined', 'window', 'eval', 'evalInContext']);
+      runTime.print = function(output) {
+        doCmd.out += output;
+      };
+      runTime.println = function(output) {
+        runTime.print(output + '\n');
+      };
+      runTime.data = game;
       
       callback({
         input: function(input) {
