@@ -1,4 +1,5 @@
 (function(context) {
+  var protectionDone = false;
   var evalInContext = function(js, ctx) {
     var undefined; // Ensure undefined is set correctly
     // Return the results of the in-line anonymous function we .call with the passed context
@@ -16,8 +17,11 @@
     ctx._eval = context.eval;
     ctx._console = context.console;
     return function() {
-      setToUndef.call(this, Object.getOwnPropertyNames(context));
-      setToUndef.call(this, ['context', 'setToUndef', 'js', 'ctx', 'undefined', 'window', 'eval', 'location', 'evalInContext']);
+      if (!protectionDone) {
+        setToUndef.call(this, Object.getOwnPropertyNames(context));
+        setToUndef.call(this, ['context', 'setToUndef', 'js', 'ctx', 'undefined', 'window', 'eval', 'evalInContext']);
+        protectionDone = true;
+      }
       this.console = this._console;
       // Remove vars for safety with the eval
       with(this) {
