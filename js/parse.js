@@ -6,10 +6,10 @@
     var setToUndef = function(key) {
       if (key instanceof context.Array) {
         for (var i = 0; i < key.length; i++) {
-          this[key[i]] = undef;
+          this[key[i]] = undefined;
         }
       }
-      this[key] = undef;
+      this[key] = undefined;
     };
     return function() {
       setToUndef.call(this, [
